@@ -9,7 +9,9 @@ time [5] // undefined
 time [6] = "victor" // atribuição dinâmicos
 
 for (const jogador of time) {
+if (jogador != undefined)
 console.log(jogador)
+
 
 }
 
