@@ -15,7 +15,7 @@ const profissional = {
     , cidade: "Curitiba"
 }
 
-const perfilProfissional = `Olá, meu nome é ${profissional.nome}. Sou ${profissional.profissão} com ${profissional.experiência} de experiência, especializada em ${profissional.especialização}, e atuo na cidade de ${profissional.cidade}.`
+const perfilProfissional = `\nOlá, meu nome é ${profissional.nome}. \nSou ${profissional.profissão} \ncom ${profissional.experiência} \nde experiência, especializada em ${profissional.especialização}, \ne atuo na cidade de ${profissional.cidade}.`
 
 console.log(perfilProfissional)
 
