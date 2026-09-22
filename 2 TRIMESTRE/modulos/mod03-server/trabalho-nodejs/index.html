@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wee Pets Comércios</title>
+  <link rel="stylesheet" href="/estilo.css">
+</head>
+<body>
+  <header>
+    <h1>Wee Pets Comércios</h1>
+    <p>Seu pet shop moderno para banho, tosa e saúde animal.</p>
+    <nav>
+      <a href="/">Início</a>
+      <a href="#clientes">Clientes</a>
+      <a href="/sobre">Sobre</a>
+      <a href="/404">404</a>
+    </nav>
+  </header>
+  <main>
+    <section class="card">
+      <h2>Bem-vindo ao Wee Pets</h2>
+      <p>O Wee Pets oferece serviços práticos e acolhedores para seu pet. Aqui você encontra banho,banho e tosa, cuidados veterinários e produtos especiais para qualquer tipo de animal!.</p>
+    </section>
+    <section class="card" id="clientes">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Cadastro</p>
+          <h2>Aba de clientes</h2>
+        </div>
+        <span class="client-count" id="client-count">2 clientes</span>
+      </div>
+      <form id="client-form" class="client-form">
+        <label>
+          Nome do pet
+          <input type="text" name="nome" placeholder="Ex.: Mel" required>
+        </label>
+        <label>
+          Raça
+          <input type="text" name="raca" placeholder="Ex.: Golden Retriever" required>
+        </label>
+        <label>
+          Idade
+          <input type="number" name="idade" min="0" max="100" placeholder="Anos" required>
+        </label>
+        <label>
+          Peso (kg)
+          <input type="number" name="peso" min="0.1" step="0.1" placeholder="Ex.: 12,5" required>
+        </label>
+        <button type="submit">Adicionar cliente</button>
+      </form>
+
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Nome</th>
+              <th>Raça</th>
+              <th>Idade</th>
+              <th>Peso</th>
+            </tr>
+          </thead>
+          <tbody id="client-list">
+            <tr>
+              <td>Mel</td>
+              <td>Golden Retriever</td>
+              <td>4 anos</td>
+              <td>24,5 kg</td>
+            </tr>
+            <tr>
+              <td>Thor</td>
+              <td>Pastor Alemão</td>
+              <td>6 anos</td>
+              <td>31 kg</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <p>Wee Pets — cuidado e estilo para pets mais felizes e saudáveis.</p>
+  </footer>
+  <script>
+    const clientForm = document.querySelector('#client-form')
+    const clientList = document.querySelector('#client-list')
+    const clientCount = document.querySelector('#client-count')
+
+    clientForm.addEventListener('submit', (event) => {
+      event.preventDefault()
+      const formData = new FormData(clientForm)
+      const row = document.createElement('tr')
+      const values = [
+        formData.get('nome'),
+        formData.get('raca'),
+        `${formData.get('idade')} anos`,
+        `${formData.get('peso').replace('.', ',')} kg`
+      ]
+
+      values.forEach((value) => {
+        const cell = document.createElement('td')
+        cell.textContent = value
+        row.appendChild(cell)
+      })
+
+      clientList.appendChild(row)
+      clientCount.textContent = `${clientList.rows.length} clientes`
+      clientForm.reset()
+    })
+  </script>
+</body>
+</html>
