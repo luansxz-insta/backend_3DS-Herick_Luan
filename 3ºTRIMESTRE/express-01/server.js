@@ -5,7 +5,7 @@ const PORT = process.env.PORT || 3000
 const app = express()
 const baseDir = import.meta.dirname
 //Middleware (guardião)
-app.use(express.static(path.join(baseDir, 'src/public')))
+app.use('/public', express.static(path.join(baseDir, 'src', 'public')))
 
 app.get('/', (req, res) => { // callback ou retorno
  res.sendFile('src/pages/index.html', {root: baseDir})
