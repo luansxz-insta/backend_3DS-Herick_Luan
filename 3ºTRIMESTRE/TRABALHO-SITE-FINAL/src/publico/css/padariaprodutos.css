@@ -1,0 +1,251 @@
+:root {
+    --marrom-escuro: #4a2c11;
+    --marrom-claro: #b88e67;
+    --bege-suave: #fbf8f3;
+    --bege-medio: #eadbc8;
+    --texto-escuro: #2c1a0a;
+    --texto-claro: #ffffff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Poppins, sans-serif;
+    background: var(--bege-suave);
+    color: var(--texto-escuro);
+    line-height: 1.6;
+}
+
+a {
+    color: inherit;
+}
+
+.container {
+    width: min(1120px, calc(100% - 40px));
+    margin: 0 auto;
+}
+
+.navbar {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+    align-items: center;
+    gap: 24px;
+    padding: 8px 40px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: var(--marrom-escuro);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.logo {
+    display: block;
+    grid-column: 1;
+    flex: 0 0 auto;
+    width: 112px;
+    text-decoration: none;
+    line-height: 0;
+}
+
+.logo img {
+    display: block;
+    width: 100%;
+    height: 108px;
+    object-fit: contain;
+}
+
+.nav-links {
+    display: flex;
+    grid-column: 2;
+    justify-self: center;
+    align-items: center;
+    gap: 26px;
+}
+
+.nav-links a {
+    color: var(--bege-medio);
+    text-decoration: none;
+    font-weight: 500;
+    transition: 0.25s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--texto-claro);
+    border-bottom: 2px solid var(--marrom-claro);
+    padding-bottom: 4px;
+}
+
+.products-hero {
+    padding: 100px 0;
+    text-align: center;
+    background: linear-gradient(135deg, #311907, #6e472a);
+    color: var(--texto-claro);
+}
+
+.products-hero h1 {
+    margin-bottom: 15px;
+    font-family: "Playfair Display", serif;
+    font-size: clamp(2.8rem, 7vw, 5rem);
+}
+
+.products-hero > .container > p:last-child {
+    color: var(--bege-suave);
+    font-size: 1.1rem;
+}
+
+.products-section {
+    padding: 90px 0;
+}
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+}
+
+.product-card {
+    overflow: hidden;
+    border: 1px solid var(--bege-medio);
+    border-radius: 10px;
+    background: var(--texto-claro);
+    box-shadow: 0 10px 30px rgba(74, 44, 17, 0.08);
+    transition: transform 0.25s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-6px);
+}
+
+.product-image {
+    display: block;
+    position: relative;
+    overflow: hidden;
+    height: 220px;
+    background: var(--bege-medio);
+    text-decoration: none;
+}
+
+.product-image:focus-visible {
+    outline: 3px solid var(--marrom-claro);
+    outline-offset: -3px;
+}
+
+.product-image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.image-attribution {
+    margin-top: 8px;
+    font-size: 0.75rem;
+}
+
+.image-attribution a:hover {
+    text-decoration: underline;
+}
+
+.product-info {
+    padding: 25px;
+}
+
+.product-info h2 {
+    margin-bottom: 10px;
+    color: var(--marrom-escuro);
+    font-family: "Playfair Display", serif;
+    font-size: 1.35rem;
+}
+
+.product-info p {
+    min-height: 70px;
+    margin-bottom: 17px;
+    color: #666;
+}
+
+.price {
+    color: var(--marrom-escuro);
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.callout {
+    padding: 70px 0;
+    text-align: center;
+    background: var(--bege-medio);
+}
+
+.callout h2 {
+    margin-bottom: 10px;
+    color: var(--marrom-escuro);
+    font-family: "Playfair Display", serif;
+}
+
+.callout p {
+    margin-bottom: 25px;
+}
+
+.btn-primary {
+    display: inline-block;
+    padding: 12px 28px;
+    border: 2px solid var(--marrom-claro);
+    border-radius: 30px;
+    background: var(--marrom-claro);
+    color: var(--marrom-escuro);
+    font-weight: 600;
+    text-decoration: none;
+    transition: 0.25s ease;
+}
+
+.btn-primary:hover {
+    background: transparent;
+    color: var(--marrom-escuro);
+}
+
+.footer {
+    padding: 25px 0;
+    background: var(--marrom-escuro);
+}
+
+.footer-bottom {
+    text-align: center;
+    color: var(--bege-medio);
+}
+
+@media (max-width: 850px) {
+    .products-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 640px) {
+    .navbar {
+        grid-template-columns: 1fr;
+        justify-items: center;
+        padding: 18px 20px;
+    }
+
+    .logo,
+    .nav-links {
+        grid-column: 1;
+    }
+
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 14px;
+    }
+
+    .products-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .product-image {
+        height: 190px;
+    }
+}
